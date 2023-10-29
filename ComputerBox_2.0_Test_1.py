@@ -135,8 +135,8 @@ def mod4code() :
 
     def deltemp():
         temp_folder = os.environ['TEMP']
-        subprocess.Popen(f'for /D %folder in ("{temp_folder}\\*") do (rd /S /Q "%folder")', shell=True)
-        subprocess.Popen(f'del /F /Q "{temp_folder}\\*"', shell=True)
+        subprocess.Popen(f'for /D %folder in ("{temp_folder}\\*") do (rd /S /Q "%folder")&pause', shell=True)
+        subprocess.Popen(f'del /F /Q "{temp_folder}\\*"&pause', shell=True)
     
     deltempbt = ttk.Button(mod4, text='一键清理', command=deltemp, width=16)
     deltempbt.grid(row=0, column=0)
@@ -146,6 +146,15 @@ def mod4code() :
 
 mod4bt = ttk.Button(text='缓存清理', command=mod4code, width=16)
 mod4bt.grid(row=3,column=0)
+#mod5
+def mod5code():
+    #代码从此开始
+    subprocess.Popen('control /name Microsoft.ProgramsAndFeatures', shell=True)
+    # 代码结束
+
+mod5bt = ttk.Button(text='程序管理', command=mod5code, width=16)
+mod5bt.grid(row=4, column=0)
+
 
 
 
